@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Iosevka';
+  src:
+    local('Iosevka'),
+    url('/fonts/iosevka-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src:
+    local('Iosevka'),
+    url('/fonts/iosevka-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --color-dark-bg: #171717;
+  --color-dark-text: #ebdbb2;
+  --color-light-bg: #ebdbb2;
+  --color-light-text: #3c3836;
+  --color-accent: #fe8019;
+  --color-accent-light: #4a7c29;
+  --bgcolor: var(--color-dark-bg);
+  --fontcolor: var(--color-dark-text);
+  --accentcolor: var(--color-accent);
+  --cat-face: var(--color-dark-bg);
+  --cat-eyes: var(--color-dark-text);
+  --cat-size: min(70px, 8vh);
+}
+
+:root[data-theme='light'] {
+  --bgcolor: var(--color-light-bg);
+  --fontcolor: var(--color-light-text);
+  --accentcolor: var(--color-accent-light);
+  --cat-face: var(--color-light-bg);
+  --cat-eyes: var(--color-dark-bg);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bgcolor: var(--color-light-bg);
+    --fontcolor: var(--color-light-text);
+    --accentcolor: var(--color-accent-light);
+    --cat-face: var(--color-light-bg);
+    --cat-eyes: var(--color-dark-bg);
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--fontcolor);
+  background: var(--bgcolor);
+}
+
+#root {
+  font-family: Iosevka, monospace;
+  min-height: 100vh;
+}
