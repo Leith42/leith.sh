@@ -339,6 +339,35 @@ hr {
   word-break: keep-all;
 }
 
+.container-projects > * {
+  max-width: 980px;
+}
+
+.container-projects {
+  padding: min(2.5vh, 18px) 20px min(8px, 1vh);
+}
+
+.container-projects .content {
+  margin-top: min(8px, 0.8vh);
+  margin-bottom: min(8px, 0.8vh);
+}
+
+.container-projects .projects-grid {
+  gap: min(10px, 1vh);
+}
+
+.container-projects .project-card {
+  padding: min(10px, 1vh);
+}
+
+.container-projects .project-image {
+  height: min(120px, 12vh);
+}
+
+.container-projects .projects-note {
+  padding-top: min(8px, 0.8vh);
+}
+
 .content h2 {
   margin: 0 0 15px 0;
   font-size: 28px;
@@ -463,13 +492,23 @@ hr {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: min(15px, 1.5vh);
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-height: 700px) {
   .container {
     padding: 10px 20px;
+  }
+
+  .container-projects {
+    padding: 6px 20px;
   }
 
   header {
@@ -509,13 +548,25 @@ hr {
     gap: 8px;
   }
 
+  .container-projects .projects-grid {
+    gap: 5px;
+  }
+
   .project-card {
     padding: 8px;
+  }
+
+  .container-projects .project-card {
+    padding: 6px;
   }
 
   .project-image {
     height: 10vh;
     margin-bottom: 5px;
+  }
+
+  .container-projects .project-image {
+    height: 10vh;
   }
 
   .project-card h3 {
@@ -597,6 +648,22 @@ hr {
   margin-top: auto;
 }
 
+.project-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.project-image-button:focus-visible {
+  outline: 1px solid var(--accentcolor);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
 .project-image {
   display: block;
   width: 100%;
@@ -604,6 +671,52 @@ hr {
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.project-image-button:hover .project-image,
+.project-image-button:focus-visible .project-image {
+  transform: scale(1.02);
+  opacity: 0.92;
+}
+
+.project-preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.project-preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(420px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  padding: 10px;
+  border: 1px solid var(--cat-eyes);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bgcolor) 92%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.project-preview-label {
+  font-size: 12px;
+  color: var(--cat-eyes);
+  opacity: 0.8;
+}
+
+.project-preview-image {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: min(260px, 30vh);
+  border-radius: 8px;
+  align-self: center;
 }
 
 .project-card h3 {

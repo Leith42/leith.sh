@@ -5,7 +5,7 @@ const socialLinks = [
   { href: 'https://github.com/Leith42', icon: FaGithub, label: 'Github' },
   { href: 'https://www.linkedin.com/in/amine-azri/', icon: FaLinkedin, label: 'Linkedin' },
   { href: 'https://x.com/leith42', icon: FaXTwitter, label: 'Twitter' },
-  { href: 'mailto:contact@leith.sh', icon: FaEnvelope, label: 'Email' },
+  { href: 'mailto:aazri@e-novate.fr', icon: FaEnvelope, label: 'Email' },
 ] as const
 
 interface SocialNavProps {

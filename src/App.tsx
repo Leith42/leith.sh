@@ -4,7 +4,14 @@ import { useTheme } from './hooks/useTheme'
 import { Header, MainNav, Content, SocialNav } from './components'
 import type { Page } from './types'
 
-const PROJECT_IMAGES = ['/img/kirby-samurai.gif', '/img/gol.gif', '/img/dgse.gif']
+const PROJECT_IMAGES = [
+  '/img/kirby-samurai.gif',
+  '/img/gol.gif',
+  '/img/dgse.gif',
+  '/img/corewar.gif',
+  '/img/ant.gif',
+  '/img/zik.gif',
+]
 
 function App() {
   const { theme, spinning, toggleTheme } = useTheme()
@@ -24,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className={`container${activePage === 'projects' ? ' container-projects' : ''}`}>
       <Header theme={theme} spinning={spinning} onToggleTheme={toggleTheme} />
       <hr />
       <MainNav activePage={activePage} onNavigate={setActivePage} />
